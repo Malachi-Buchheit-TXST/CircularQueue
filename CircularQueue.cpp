@@ -24,8 +24,10 @@ int CircularQueue::length() {
 }
 
 int CircularQueue::dequeue() {
-  if (empty)
+  if (empty) {
+    std::cout << "CANNOT DEQUEUE AN EMPTY QUEUE!" << std::cout;
     throw;
+  }
   int out = array[head];
   head = (head + 1) % arr_size;
   if (head == tail)

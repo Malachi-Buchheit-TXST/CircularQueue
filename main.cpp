@@ -33,7 +33,7 @@ int main() {
   enqueue(c, 8);
   dequeue(c, 2);
   enqueue(c, 3);
-  dequeue(c, 2);
+  dequeue(c, 6);
 
   return 0;
 }
