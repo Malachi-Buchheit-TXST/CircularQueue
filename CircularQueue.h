@@ -8,7 +8,7 @@
 
 class CircularQueue {
  public:
-  explicit CircularQueue(int size);
+  CircularQueue(int size);
   int size();
   int length();
   int dequeue();
@@ -20,6 +20,7 @@ class CircularQueue {
   int head,
       tail,
       arr_size;
+  bool empty;
 };
 
 #endif //CIRCULARQUEUE__CIRCULARQUEUE_H_

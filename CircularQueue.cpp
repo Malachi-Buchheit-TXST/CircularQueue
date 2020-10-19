@@ -8,6 +8,7 @@ CircularQueue::CircularQueue(int size) {
   arr_size = size;
   head = 0;
   tail = 0;
+  empty = true;
 }
 
 int CircularQueue::size() {
@@ -15,26 +16,29 @@ int CircularQueue::size() {
 }
 
 int CircularQueue::length() {
-  if (tail > head)
+  if (empty)
+    return 0;
+  else if (tail > head)
     return tail - head;
-  else if (tail < head)
-    return arr_size + tail - head;
-  return 0;
+  return arr_size + tail - head;
 }
 
 int CircularQueue::dequeue() {
-  if (tail == head)
+  if (empty)
     throw;
   int out = array[head];
   head = (head + 1) % arr_size;
+  if (head == tail)
+    empty = true;
   return out;
 }
 
 void CircularQueue::enqueue(int val) {
   array[tail] = val;
-  tail = (tail + 1) % arr_size;
-  if (head == tail)
+  if (head == tail && !empty)
     head = (head + 1) % arr_size;
+  tail = (tail + 1) % arr_size;
+  empty = false;
 }
 
 void CircularQueue::print() {

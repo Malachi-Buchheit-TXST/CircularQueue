@@ -28,13 +28,12 @@ void enqueue(CircularQueue& c, int n) {
 
 int main() {
   CircularQueue c = CircularQueue(6);
+  std::cout << "Size: " << c.size() << std::endl << std::endl;
 
-  enqueue(c, 5);
-  dequeue(c, 4);
+  enqueue(c, 8);
+  dequeue(c, 2);
   enqueue(c, 3);
   dequeue(c, 2);
-
-  dequeue(c, 1);
 
   return 0;
 }
